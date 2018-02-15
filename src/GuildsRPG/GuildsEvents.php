@@ -101,8 +101,8 @@ class GuildsEvents implements Listener {
                 $p = $killer->getPlayer()->getName();
                 if($this->plugin->isInGuild($p)){
                     $f = $this->plugin->getPlayerGuild($p);
-                    $e = $this->plugin->prefs->get("GPGainedPerKillingAnEnemy");
-                    $d = $this->plugin->prefs->get("GuildsMoneyGainPerKill");
+                    $e = $this->plugin->settings->get("PointGainedPerKillingAnEnemy");
+                    $d = $this->plugin->settings->get("GuildsMoneyGainPerKill");
                     $killer->sendPopup("§6+ ".$e." GuildsPoints/n§6+ ".$d." GuildsMoney");
                     if($ent instanceof Player){
                         if($this->plugin->isInGuild($ent->getPlayer()->getName())){
@@ -120,8 +120,8 @@ class GuildsEvents implements Listener {
             $e = $ent->getPlayer()->getName();
             if($this->plugin->isInGuild($e)){
                 $f = $this->plugin->getPlayerGuild($e);
-                $e = $this->plugin->prefs->get("GPReducedPerDeathByAnEnemy");
-                $m = $this->plugin->prefs->get("GuildsMoneyLostPerDeath");
+                $e = $this->plugin->settings->get("GPReducedPerDeathByAnEnemy");
+                $m = $this->plugin->settings->get("GuildsMoneyLostPerDeath");
                 $ent->sendPopup("§c- $e GuildsPoint/n§c- $m GuildsMoney");
                 if($ent->getLastDamageCause() instanceof EntityDamageByEntityEvent && $ent->getLastDamageCause()->getDamager() instanceof Player){
                     if($this->plugin->isInGuild($ent->getLastDamageCause()->getDamager()->getPlayer()->getName())){      
